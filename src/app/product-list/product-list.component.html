@@ -15,7 +15,16 @@ can be found in the LICENSE file at https://angular.io/license
         Set the title to be the product's name by using the property binding [ ] syntax.
         Property binding [ ] lets you use the property value in a template expression.
      -->
-    <a [title]="product.name + ' details'">
+    <!-- 
+       The RouterLink directive helps you customize the anchor element. In this case, the route, or 
+       URL, contains one fixed segment, /products. The final segment is variable, inserting the id 
+       property of the current product. For example, the URL for a product with an id of 1 would be 
+       similar to https://getting-started-myfork.stackblitz.io/products/1.
+      -->
+    <a
+      [title]="product.name + ' details'"
+      [routerLink]="['/products', product.id]"
+    >
       <!-- 
         The {{ product.name }} statement is an example of Angular's interpolation syntax. 
         Interpolation {{ }} lets you render the property value as text.

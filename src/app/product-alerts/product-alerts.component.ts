@@ -1,5 +1,6 @@
 // To set up ProductAlertsComponent to receive product data, first import Input from @angular/core.
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+// Import the Product class from ../products
 import { Product } from '../products';
 
 // The @Component() definition also exports the class, ProductAlertsComponent, which handles
