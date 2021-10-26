@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Product } from './products';
 
 @Injectable({
@@ -20,5 +21,12 @@ export class CartService {
     this.items = [];
     return this.items;
   }
-  constructor() {}
+  getShippingPrices() {
+    return this.http.get<{ type: string; price: number }[]>(
+      '/assets/shipping.json'
+    );
+  }
+  // Inject the HttpClient service into your service so your application can fetch data and interact with
+  // external APIs and resources.
+  constructor(private http: HttpClient) {}
 }
