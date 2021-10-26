@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Product } from './products';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class CartService {
   // Define an items property to store the array of the current products in the cart
   items: Product[] = [];
