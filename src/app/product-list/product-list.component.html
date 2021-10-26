@@ -1,0 +1,54 @@
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
+<h2>Products</h2>
+<!-- 
+  With the structural directive *ngFor, the <div> repeats for each product in the list.
+  Structural directives shape or reshape the DOM's structure, by adding, removing, and manipulating
+  elements.
+  -->
+<div *ngFor="let product of products">
+  <h3>
+    <!-- 
+        Set the title to be the product's name by using the property binding [ ] syntax.
+        Property binding [ ] lets you use the property value in a template expression.
+     -->
+    <a [title]="product.name + ' details'">
+      <!-- 
+        The {{ product.name }} statement is an example of Angular's interpolation syntax. 
+        Interpolation {{ }} lets you render the property value as text.
+
+        To make each product name a link to product details, add the <a> elements
+        around {{ product.name }}.
+      -->
+      {{ product.name }}
+    </a>
+  </h3>
+  <!-- 
+    On a <p> element, use an *ngIf directive so that angular only creates the <p> element if the
+    current product has a description.
+   -->
+  <p *ngIf="product.description">Description: {{ product.description }}</p>
+  <!-- 
+    Add a button so that users can share a product. Bind the button's click even to the share() method
+    in product-list.component.ts. Event binding uses a set of parentheses, ( ), around the event, as in 
+    the (click) event on the <button> element.
+   -->
+  <button (click)="share()">Share</button>
+  <!-- 
+    7. Finally, to display ProductAlertsComponent as a child of ProductListComponent, add the selector,
+    <app-product-alerts> to product-list.component.html. Pass the current product as input to the component
+    using property binding. 
+  -->
+  <!-- app-products-alerts - a component that contains the application's alerts -->
+  <!-- 
+    Update the ProductListComponent to receive data from the ProductAlertsComponent. 
+    Bind <app-product-alerts> to the onNotify() method of the product list component. 
+    <app-product-alerts> is what displays the Notify Me button.
+  
+  -->
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
