@@ -14,8 +14,10 @@ export class ProductListComponent {
     window.alert('The product has been shared!');
   }
   // Here we pass data from the child component - ProductAlertsComponent to the parent component - ProductListComponent
-  onNotify() {
-    window.alert('You will be notified when the product goes on sale');
+  onNotify(product_name: string) {
+    window.alert(
+      'You will be notified when the product ' + product_name + ' goes on sale'
+    );
   }
 }
 

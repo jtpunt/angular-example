@@ -58,6 +58,6 @@ can be found in the LICENSE file at https://angular.io/license
     <app-product-alerts> is what displays the Notify Me button.
   
   -->
-  <app-product-alerts [product]="product" (notify)="onNotify()">
+  <app-product-alerts [product]="product" (notify)="onNotify(product.name)">
   </app-product-alerts>
 </div>
